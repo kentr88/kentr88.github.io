@@ -32,7 +32,7 @@ export default function Home() {
     <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-4 pb-10 gap-8 sm:p-10 font-[family-name:var(--font-geist-sans)] text-center bg-white dark:bg-gray-900 text-black dark:text-white">
       <header className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between w-full mb-8 pt-6 sm:pt-6">
         <h3 className="text-2xl font-bold sm:text-3xl">
-          LOGO
+          KR
         </h3>
         <nav className="flex gap-4">
           <a href="#about" className="hover:underline">About</a>
@@ -50,7 +50,7 @@ export default function Home() {
           Second year Computer Science student at The University of Adelaide.
         </p>
 
-        <div className="flex gap-4">
+        <div className="flex gap-12">
           <a href="https://github.com/your-github-username" target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-2">
           <FontAwesomeIcon icon={faGithub} size="2x" />
             
