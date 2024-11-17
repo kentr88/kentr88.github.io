@@ -8,7 +8,7 @@ export default function Home() {
       name: "3D Graphics Engine",
       date: "6/2024",
       description:
-        "This project is an implementation of a 3D Graphics Engine, originally developed by Javidx9 on YouTube. The original version was designed to work in the console, but this version has been adapted to use OpenGL, a powerful cross-platform graphics API.",
+        "This project is an implementation of a 3D Graphics Engine, originally written by Javidx9 on YouTube. This version has been adapted from the console to use OpenGL, a powerful cross-platform graphics API.",
       features: [
         "Loads 3D models from files",
         "4x4 View Matrix and Camera Implementation",

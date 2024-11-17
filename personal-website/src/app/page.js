@@ -15,11 +15,11 @@ export default function Home() {
         </p>
 
         <div className="flex gap-12">
-          <a href="https://github.com/your-github-username" target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-2">
+          <a href="https://github.com/kentr88" target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-2">
           <FontAwesomeIcon icon={faGithub} size="2x" />
             
           </a>
-          <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-2">
+          <a href="https://www.linkedin.com/in/kent-rattley-772769305/" target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center gap-2">
           <FontAwesomeIcon icon={faLinkedin} size="2x" />
           </a>
         </div>
