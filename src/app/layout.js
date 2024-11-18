@@ -1,12 +1,17 @@
 "use client";
 
 import "./globals.css"; // Import global styles
+import dynamic from "next/dynamic";
+import Link from "next/link"; // Import Link from next/link
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 
 import localFont from "next/font/local";
 
+const DynamicFontAwesomeIcon = dynamic(() => import("@fortawesome/react-fontawesome").then(mod => mod.FontAwesomeIcon), {
+  ssr: false,
+});
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,11 +29,17 @@ const geistMono = localFont({
 export default function RootLayout({ children }) {
   const [theme, setTheme] = useState("light");
 
-  // Load theme from localStorage on initial render
+  // Load theme from system preferences on initial render
+  // then save to localStorage and use in future
   useEffect(() => {
-    const storedTheme = localStorage.getItem("theme") || "light";
-    setTheme(storedTheme);
-    document.documentElement.classList.toggle("dark", storedTheme === "dark");
+    // Get stored theme or detect system preference
+    const storedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const theme = storedTheme || (prefersDark ? "dark" : "light");
+  
+    // Apply the theme and ensure the class reflects the choice
+    setTheme(theme);
+    document.documentElement.classList.toggle("dark", theme === "dark");
   }, []);
 
   // Toggle theme and save to localStorage
@@ -44,16 +55,16 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} >
         <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-4 pb-10 gap-8 sm:p-10 font-[family-name:var(--font-geist-sans)] text-center bg-white dark:bg-gray-900 text-black dark:text-white">
           <header className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between w-full mb-8 pt-6 sm:pt-6">
-            <a href="/"><h3 className="text-2xl font-bold sm:text-3xl">
+            <Link href="/"><h3 className="text-2xl font-bold sm:text-3xl">
               KR
             </h3>
-            </a>
+            </Link>
             <nav className="flex gap-4">
-              <a href="/about" className="hover:underline">About</a>
-              <a href="/Kent Resume.pdf" className="hover:underline">Resume</a>
-              <a href="/projects" className="hover:underline">Projects</a>
+              <Link href="/about" className="hover:underline">About</Link>
+              <Link href="/Kent Resume.pdf" className="hover:underline">Resume</Link>
+              <Link href="/projects" className="hover:underline">Projects</Link>
             <button onClick={toggleTheme} className="ml-2 px-2 border rounded text-sm border-none bg-transparent">
-                {theme === "light" ? <FontAwesomeIcon icon={faSun} size="lg"/> : <FontAwesomeIcon icon={faMoon} size="lg"/>}
+                {theme === "light" ? <FontAwesomeIcon icon={faMoon} size="lg"/> : <FontAwesomeIcon icon={faSun} size="lg"/>}
             </button>
             </nav>
           </header>
@@ -63,6 +74,10 @@ export default function RootLayout({ children }) {
             © {new Date().getFullYear()} Kent Rattley. Powered by 
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
               <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer" className="hover:underline">Next.js</a>
+            </code>
+            &nbsp;- icons from 
+            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
+              <a href="https://fontawesome.com" target="_blank" rel="noopener noreferrer" className="hover:underline">FontAwesome</a>
             </code>
           </p>
         </footer>
