@@ -33,10 +33,9 @@ export default function Home() {
 
           <div className="border-t pt-8">
               <div className="gap-8 text-left">
-                  <h2 className="text-2xl font-semibold">Employment</h2>
+                  <h2 className="text-2xl font-semibold">Past Employment</h2>
                   <p className="mt-2 text-md">
-                    <b>Office Administrator (Certificate 3 in Business)</b> - Rice Electrical Contractors<br/>
-
+                    <b>Office Administrator (Certificate 3 in Business)</b> - Rice Electrical Contractors (2022)<br/>
                   </p>
               </div>
           </div>
