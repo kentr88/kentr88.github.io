@@ -12,7 +12,7 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         customdark: "#121525",
-        customlight: "#f5f5f5",
+        customlight: "#fafafa",
       },
     },
   },
