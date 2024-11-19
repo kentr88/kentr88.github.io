@@ -31,10 +31,10 @@ export default function RootLayout({ children }) {
   const pathname = usePathname();
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Resume', path: '/Kent Resume.pdf' },
-    { name: 'Projects', path: '/projects' },
+    { name: 'Home', path: './' },
+    { name: 'About', path: './about' },
+    { name: 'Resume', path: './Kent Resume.pdf' },
+    { name: 'Projects', path: './projects' },
   ];
 
 
