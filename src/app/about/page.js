@@ -16,7 +16,7 @@ export default function Home() {
               <div className="gap-8 text-left">
                   <h2 className="text-2xl font-semibold">Introduction</h2>
                   <p className="mt-2 text-md">
-                    Hi, my name is Kent Rattley, I am a second year Computer Science student at the University of Adelaide.
+                    Hi, my name is Kent Rattley, I am a third year Computer Science student at the University of Adelaide.
                     I am interested in machine learning, software and web development.
                   </p>
               </div>
